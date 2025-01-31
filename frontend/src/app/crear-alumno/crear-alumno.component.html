@@ -1,56 +1,96 @@
 <div class="container-fluid py-1 bg-white">
-    <div class="row justify-content-center">
-      <div class="col-12 col-xl-10">
-        <div class="card shadow-lg border-0 rounded-lg">
-          <div class="card-header bg-primary text-white py-2">
-            <h2 class="mb-0 text-center">Crear Alumno</h2>
+  <div class="row justify-content-center">
+    <div class="col-12 col-xl-10">
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header bg-success text-white py-2 d-flex justify-content-between">
+          <h2 class="mb-0 text-center">Crear Alumno</h2>
+          <div>
+            <button class="btn btn-warning btn-sm me-2" data-bs-toggle="modal" data-bs-target="#modalAgregarGrado">Agregar Grado</button>
+            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalAgregarSeccion">Agregar Sección</button>
           </div>
-          <div class="card-body p-5">
-            <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
-              <div class="row g-4">
-                <div class="col-md-6">
-                  <label for="nombre" class="form-label fs-5">Nombre</label>
-                  <input type="text" class="form-control form-control-lg" id="nombre" [(ngModel)]="alumno.nombre" name="nombre" required>
-                </div>
-                <div class="col-md-6">
-                  <label for="fecha_nacimiento" class="form-label fs-5">Fecha de Nacimiento</label>
-                  <input type="date" class="form-control form-control-lg" id="fecha_nacimiento" [(ngModel)]="alumno.fecha_nacimiento" name="fecha_nacimiento" required>
-                </div>
-                <div class="col-md-6">
-                  <label for="nombre_padre" class="form-label fs-5">Nombre del Padre</label>
-                  <input type="text" class="form-control form-control-lg" id="nombre_padre" [(ngModel)]="alumno.nombre_padre" name="nombre_padre" required>
-                </div>
-                <div class="col-md-6">
-                  <label for="nombre_madre" class="form-label fs-5">Nombre de la Madre</label>
-                  <input type="text" class="form-control form-control-lg" id="nombre_madre" [(ngModel)]="alumno.nombre_madre" name="nombre_madre" required>
-                </div>
-                <div class="col-md-4">
-                  <label for="grado" class="form-label fs-5">Grado</label>
-                  <select class="form-select form-select-lg" id="grado" [(ngModel)]="alumno.grado" name="grado" required>
-                    <option value="" disabled selected>Seleccione un grado</option>
-                    <option *ngFor="let grado of grados" [value]="grado.id">{{ grado.nombre }}</option>
-                  </select>
-                </div>
-                <div class="col-md-4">
-                  <label for="seccion" class="form-label fs-5">Sección</label>
-                  <select class="form-select form-select-lg" id="seccion" [(ngModel)]="alumno.seccion" name="seccion" required>
-                    <option value="" disabled selected>Seleccione una sección</option>
-                    <option *ngFor="let seccion of secciones" [value]="seccion.id">{{ seccion.nombre }}</option>
-                  </select>
-                </div>
-                <div class="col-md-4">
-                  <label for="fecha_ingreso" class="form-label fs-5">Fecha de Ingreso</label>
-                  <input type="date" class="form-control form-control-lg" id="fecha_ingreso" [(ngModel)]="alumno.fecha_ingreso" name="fecha_ingreso" required>
-                </div>
+        </div>
+        <div class="card-body p-5">
+          <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label for="nombre" class="form-label fs-5">Nombre</label>
+                <input type="text" class="form-control form-control-lg" id="nombre" [(ngModel)]="alumno.nombre" name="nombre" required>
               </div>
-              <div class="d-grid justify-content-center gap-2 mt-5">
-                <button type="submit" class="btn btn-primary btn-lg py-3 fs-4 ">Crear Alumno</button>
+              <div class="col-md-6">
+                <label for="fecha_nacimiento" class="form-label fs-5">Fecha de Nacimiento</label>
+                <input type="date" class="form-control form-control-lg" id="fecha_nacimiento" [(ngModel)]="alumno.fecha_nacimiento" name="fecha_nacimiento" required>
               </div>
-            </form>
-          </div>
+              <div class="col-md-6">
+                <label for="nombre_padre" class="form-label fs-5">Nombre del Padre</label>
+                <input type="text" class="form-control form-control-lg" id="nombre_padre" [(ngModel)]="alumno.nombre_padre" name="nombre_padre" required>
+              </div>
+              <div class="col-md-6">
+                <label for="nombre_madre" class="form-label fs-5">Nombre de la Madre</label>
+                <input type="text" class="form-control form-control-lg" id="nombre_madre" [(ngModel)]="alumno.nombre_madre" name="nombre_madre" required>
+              </div>
+              <div class="col-md-4">
+                <label for="grado" class="form-label fs-5">Grado</label>
+                <select class="form-select form-select-lg" id="grado" [(ngModel)]="alumno.grado" name="grado" required>
+                  <option value="" disabled selected>Seleccione un grado</option>
+                  <option *ngFor="let grado of grados" [value]="grado.id">{{ grado.nombre }}</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="seccion" class="form-label fs-5">Sección</label>
+                <select class="form-select form-select-lg" id="seccion" [(ngModel)]="alumno.seccion" name="seccion" required>
+                  <option value="" disabled selected>Seleccione una sección</option>
+                  <option *ngFor="let seccion of secciones" [value]="seccion.id">{{ seccion.nombre }}</option>
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="fecha_ingreso" class="form-label fs-5">Fecha de Ingreso</label>
+                <input type="date" class="form-control form-control-lg" id="fecha_ingreso" [(ngModel)]="alumno.fecha_ingreso" name="fecha_ingreso" required>
+              </div>
+            </div>
+            <div class="d-grid justify-content-center gap-2 mt-5">
+              <button type="submit" class="btn btn-primary btn-lg py-3 fs-4">Crear Alumno</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </div>
-  
-  
+</div>
+
+<!-- Modal Agregar Grado -->
+<div class="modal fade" id="modalAgregarGrado" tabindex="-1" aria-labelledby="modalGradoLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalGradoLabel">Agregar Grado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" [(ngModel)]="grado.nombre" placeholder="Nombre del Grado">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="agregarGrado()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Agregar Sección -->
+<div class="modal fade" id="modalAgregarSeccion" tabindex="-1" aria-labelledby="modalSeccionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalSeccionLabel">Agregar Sección</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control" [(ngModel)]="seccion.nombre" placeholder="Nombre de la Sección">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="agregarSeccion()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
