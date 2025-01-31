@@ -1,0 +1,53 @@
+<div class="container-fluid py-1 bg-white">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xxl-11"> 
+        <div class="card shadow-lg border-0 rounded-lg">
+          <div class="card-header bg-success text-white py-2"> 
+            <h2 class="mb-0 text-center ">Consultar Alumnos por Grado</h2> 
+          </div>
+          <div class="card-body p-5"> 
+            <div class="row mb-5"> 
+              <div class="col-md-8 col-lg-6 mx-auto">
+                <label for="grado" class="form-label fs-4 mb-3">Seleccione un Grado</label> 
+                <select class="form-select form-select-lg fs-5" id="grado" [(ngModel)]="idGrado" (change)="consultarAlumnos()">
+                  <option value="" disabled selected>Escoge un grado</option>
+                  <option *ngFor="let grado of grados" [value]="grado.id">{{ grado.nombre }}</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="table-responsive" *ngIf="alumnos.length > 0">
+              <table class="table table-hover table-striped align-middle"> 
+                <thead class="table-light">
+                  <tr>
+                    <th >Nombre</th>
+                    <th >Fecha de Nacimiento</th>
+                    <th >Nombre del Padre</th>
+                    <th >Nombre de la Madre</th>
+                    <th >Sección</th>
+                    <th >Fecha de Ingreso</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let alumno of alumnos">
+                    <td class="py-3">{{ alumno.nombre }}</td>
+                    <td class="py-3">{{ alumno.fecha_nacimiento | date:'dd/MM/yyyy' }}</td>
+                    <td class="py-3">{{ alumno.nombre_padre }}</td>
+                    <td class="py-3">{{ alumno.nombre_madre }}</td>
+                    <td class="py-3">{{ alumno.seccion }}</td>
+                    <td class="py-3">{{ alumno.fecha_ingreso | date:'dd/MM/yyyy' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div *ngIf="alumnos.length === 0 && idGrado" class="alert alert-info mt-4 fs-5" role="alert">
+              No se encontraron alumnos para el grado seleccionado.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

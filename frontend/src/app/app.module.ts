@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListarAlumnosComponent } from './listar-alumnos/listar-alumnos.component';
 import { CrearAlumnoComponent } from './crear-alumno/crear-alumno.component';
+import { ConsultarAlumnosGradoComponent } from './consultar-alumnos-grado/consultar-alumnos-grado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarAlumnosComponent,
-    CrearAlumnoComponent
+    CrearAlumnoComponent,
+    ConsultarAlumnosGradoComponent
   ],
   imports: [
     BrowserModule,
