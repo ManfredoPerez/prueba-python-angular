@@ -1,0 +1,56 @@
+<div class="container-fluid py-1 bg-white">
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10">
+        <div class="card shadow-lg border-0 rounded-lg">
+          <div class="card-header bg-primary text-white py-2">
+            <h2 class="mb-0 text-center">Crear Alumno</h2>
+          </div>
+          <div class="card-body p-5">
+            <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <label for="nombre" class="form-label fs-5">Nombre</label>
+                  <input type="text" class="form-control form-control-lg" id="nombre" [(ngModel)]="alumno.nombre" name="nombre" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="fecha_nacimiento" class="form-label fs-5">Fecha de Nacimiento</label>
+                  <input type="date" class="form-control form-control-lg" id="fecha_nacimiento" [(ngModel)]="alumno.fecha_nacimiento" name="fecha_nacimiento" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="nombre_padre" class="form-label fs-5">Nombre del Padre</label>
+                  <input type="text" class="form-control form-control-lg" id="nombre_padre" [(ngModel)]="alumno.nombre_padre" name="nombre_padre" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="nombre_madre" class="form-label fs-5">Nombre de la Madre</label>
+                  <input type="text" class="form-control form-control-lg" id="nombre_madre" [(ngModel)]="alumno.nombre_madre" name="nombre_madre" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="grado" class="form-label fs-5">Grado</label>
+                  <select class="form-select form-select-lg" id="grado" [(ngModel)]="alumno.grado" name="grado" required>
+                    <option value="" disabled selected>Seleccione un grado</option>
+                    <option *ngFor="let grado of grados" [value]="grado.id">{{ grado.nombre }}</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="seccion" class="form-label fs-5">Sección</label>
+                  <select class="form-select form-select-lg" id="seccion" [(ngModel)]="alumno.seccion" name="seccion" required>
+                    <option value="" disabled selected>Seleccione una sección</option>
+                    <option *ngFor="let seccion of secciones" [value]="seccion.id">{{ seccion.nombre }}</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <label for="fecha_ingreso" class="form-label fs-5">Fecha de Ingreso</label>
+                  <input type="date" class="form-control form-control-lg" id="fecha_ingreso" [(ngModel)]="alumno.fecha_ingreso" name="fecha_ingreso" required>
+                </div>
+              </div>
+              <div class="d-grid justify-content-center gap-2 mt-5">
+                <button type="submit" class="btn btn-primary btn-lg py-3 fs-4 ">Crear Alumno</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
